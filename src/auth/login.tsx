@@ -29,8 +29,8 @@ export default function Login() {
         <div>
             <h2>Log In into account</h2>
             <form onSubmit={handleSubmit}>
-                <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
-                <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                <input name='email' placeholder='Email' type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                <input name='password' placeholder='Password ' type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                 <button type="submit">Log In</button>
                 <p>Don't have an account? <a href='/signin'>Create an account!</a></p>
                 <p>{error}</p>
