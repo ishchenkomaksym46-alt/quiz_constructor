@@ -54,7 +54,7 @@ export default function Quizzes() {
         } else {
             getQuizzes();
         }
-    }, [filter, search, page])
+    }, [filter, search, page, navigate])
 
     return(
         <div className="quizzes">
