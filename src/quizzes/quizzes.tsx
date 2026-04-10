@@ -34,14 +34,15 @@ export default function Quizzes() {
             setError(null);
 
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/searchQuiz?search=${search}&page=${page}`);
+                setTimeout( async () => {
+                    const res = await axios.get(`${process.env.REACT_APP_API_URL}/searchQuiz?search=${search}&page=${page}`);
 
-                if(res.data.success) {
-                    setQuizzes(res.data.quizzes);
-                } else {
-                    setError(res.data.message);
-                }
-
+                    if(res.data.success) {
+                        setQuizzes(res.data.quizzes);
+                    } else {
+                        setError(res.data.message);
+                    }
+                }, 500)
             } catch (error: any) {
                 console.error(error);
                 setQuizzes([]);
