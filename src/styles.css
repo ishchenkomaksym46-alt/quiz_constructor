@@ -1,0 +1,957 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6366F1;
+  --primary-hover: #4F46E5;
+  --primary-dark: #4338CA;
+  --secondary-color: #10B981;
+  --danger-color: #EF4444;
+  --danger-hover: #DC2626;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-light: #9CA3AF;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-accent: #F3F4F6;
+  --border-color: #E5E7EB;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* ============================================
+   MAIN PAGE - FULLSCREEN
+   ============================================ */
+
+/* Header */
+header {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 1.25rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-color);
+  animation: slideInLeft 0.6s ease-out;
+}
+
+header > div {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header p {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+header a {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+header a:hover {
+  background-color: var(--bg-secondary);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Hero Fullscreen */
+.hero-fullscreen {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 8%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-fullscreen::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -200px;
+  left: -200px;
+  animation: float 10s ease-in-out infinite;
+}
+
+.hero-fullscreen::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  bottom: -200px;
+  right: -200px;
+  animation: float 12s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.hero-fullscreen h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-intro {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.2s ease-out;
+  max-width: 1100px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 3rem 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.4s ease-out;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-box h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.feature-box p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.hero-cta-text {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 3rem 0 2rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.6s ease-out;
+  max-width: 1100px;
+}
+
+.hero-fullscreen p {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.2s ease-out;
+  max-width: 1200px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.4s ease-out;
+}
+
+.btn-hero {
+  padding: 1.25rem 3rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.15rem;
+  font-weight: 600;
+  background-color: white;
+  color: #1e3a8a;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-hero:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  background-color: #f0f9ff;
+}
+
+.btn-hero-outline {
+  padding: 1.25rem 3rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.15rem;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-hero-outline:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.error-msg {
+  color: #fecaca;
+  background-color: rgba(220, 38, 38, 0.2);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  margin-top: 2rem;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   FORMS STYLES
+   ============================================ */
+
+form {
+  background-color: var(--bg-primary);
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  margin: 3rem auto;
+  border: 1px solid var(--border-color);
+  animation: scaleIn 0.5s ease-out;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: var(--bg-primary);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+input[type="radio"] {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+/* Buttons */
+button,
+.start {
+  padding: 0.875rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+button[type="submit"],
+.start {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+
+button[type="submit"]:hover,
+.start:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+button[type="button"] {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+button[type="button"]:hover {
+  background-color: var(--bg-accent);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   QUIZZES PAGE
+   ============================================ */
+
+.quizzes {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.quizzes > h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+/* Sidebar */
+aside {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border-color);
+  animation: slideInLeft 0.6s ease-out;
+}
+
+aside h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.filters,
+.search {
+  margin-bottom: 1.5rem;
+}
+
+.filters label,
+.search label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.filters label:hover,
+.search label:hover {
+  background-color: var(--bg-secondary);
+  transform: translateX(5px);
+}
+
+aside hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Quiz Cards */
+.quizzes > div:not(.filters):not(.search) {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.quizzes > div:not(.filters):not(.search):hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.quizzes > div h2 {
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.quizzes > div h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.quizzes > div h4 {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Pagination */
+.quizzes > button {
+  margin: 1.5rem 0.75rem 0;
+  min-width: 120px;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.quizzes > button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* ============================================
+   QUIZ START PAGE - TRUE/FALSE BUTTONS
+   ============================================ */
+
+body > div > div > div {
+  background-color: var(--bg-primary);
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  animation: scaleIn 0.5s ease-out;
+}
+
+body > div > div > div h1 {
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+}
+
+body > div > div > div button {
+  margin: 0.75rem;
+  min-width: 150px;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* True/False Button Active States */
+body > div > div > div button:nth-of-type(1),
+body > div > div > div button:nth-of-type(2) {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 3px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+body > div > div > div button:nth-of-type(1):hover,
+body > div > div > div button:nth-of-type(2):hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+body > div > div > div button:nth-of-type(1):active,
+body > div > div > div button:nth-of-type(2):active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: var(--primary-color);
+  transform: scale(0.98);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Submit Button */
+body > div > div > div button:nth-of-type(3) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+/* Like Button */
+div[style*="cursor: pointer"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  border: 2px solid var(--border-color);
+  font-size: 1.1rem;
+}
+
+div[style*="cursor: pointer"]:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+div[style*="cursor: pointer"]:active {
+  transform: scale(1.02);
+  animation: pulse 0.3s ease;
+}
+
+/* ============================================
+   ACCOUNT PAGE
+   ============================================ */
+
+body > div > h1 {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  color: var(--text-primary);
+  animation: fadeIn 0.6s ease-out;
+}
+
+body > div > div {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 800px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  animation: fadeIn 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+body > div > div:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+body > div > div h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+body > div > div h2 {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+body > div > div h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Delete Button */
+button:has(+ button),
+a + button {
+  background-color: var(--danger-color) !important;
+  color: white !important;
+  margin-left: 1rem;
+  border: none !important;
+}
+
+button:has(+ button):hover,
+a + button:hover {
+  background-color: var(--danger-hover) !important;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CREATE QUIZ FORM
+   ============================================ */
+
+form > div {
+  background-color: var(--bg-secondary);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+form > div:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+form > div input[type="text"] {
+  margin-bottom: 1rem;
+}
+
+form > div button {
+  margin: 0.5rem 0.5rem 0 0;
+  min-width: 50px;
+  padding: 0.75rem 1.25rem;
+}
+
+/* Error Messages */
+.error-message,
+p[style*="color"] {
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem auto;
+  font-weight: 500;
+  max-width: 800px;
+  text-align: center;
+  background-color: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  header > div {
+    padding: 0 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  header a {
+    text-align: center;
+  }
+
+  .hero-fullscreen {
+    padding: 3rem 5%;
+    min-height: auto;
+  }
+
+  .hero-fullscreen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .feature-box {
+    padding: 1.5rem;
+  }
+
+  .feature-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .feature-box p {
+    font-size: 1rem;
+  }
+
+  .hero-cta-text {
+    font-size: 1.1rem;
+    margin: 2rem 0 1.5rem;
+  }
+
+  .hero-fullscreen p {
+    font-size: 1.1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn-hero,
+  .btn-hero-outline {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  form {
+    padding: 2rem 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .quizzes {
+    padding: 2rem 1rem;
+  }
+
+  aside {
+    padding: 1.5rem;
+  }
+
+  .quizzes > div:not(.filters):not(.search) {
+    padding: 1.5rem;
+  }
+
+  body > div > div > div {
+    padding: 2rem 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  body > div > div > div button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .quizzes > button {
+    display: block;
+    width: calc(50% - 1rem);
+    margin: 1rem 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  header a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-fullscreen {
+    padding: 2rem 5%;
+  }
+
+  .hero-fullscreen h1 {
+    font-size: 2rem;
+  }
+
+  .hero-fullscreen p {
+    font-size: 1rem;
+  }
+
+  .btn-hero,
+  .btn-hero-outline {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 1.5rem 1rem;
+  }
+
+  .quizzes > button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}

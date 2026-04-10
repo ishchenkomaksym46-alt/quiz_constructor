@@ -7,6 +7,7 @@ import Quizzes from "./quizzes/quizzes";
 import Start from './quizzes/start';
 import CreateQuiz from "./quizzes/createQuiz";
 import Account from "./auth/account";
+import './styles.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
