@@ -12,16 +12,19 @@ export default function Login() {
         e.preventDefault();
         axios.defaults.withCredentials = true;
 
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
-            email,
-            password,
-        })
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
+                email,
+                password,
+            })
 
-        if(res.data.success){
-            navigate('/');
-
-        } else {
-            setError(res.data.message);
+            if(res.data.success){
+                navigate('/');
+            } else {
+                setError(res.data.message);
+            }
+        } catch (error) {
+            setError('Incorrect email or password');
         }
     }
 

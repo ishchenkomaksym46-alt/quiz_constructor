@@ -5,6 +5,8 @@ import Login from "./auth/login";
 import Main from "./main/main";
 import Quizzes from "./quizzes/quizzes";
 import Start from './quizzes/start';
+import CreateQuiz from "./quizzes/createQuiz";
+import Account from "./auth/account";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
@@ -15,6 +17,8 @@ root.render(
             <Route path='/login' element={<Login />} />
             <Route path='/quizzes' element={<Quizzes />} />
             <Route path='/start' element={<Start />} />
+            <Route path='/createQuiz' element={<CreateQuiz />} />
+            <Route path='/accountInfo' element={<Account />} />
         </Routes>
     </BrowserRouter>
 );

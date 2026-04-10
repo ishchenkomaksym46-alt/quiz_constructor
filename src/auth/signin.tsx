@@ -20,7 +20,7 @@ export default function SignIn() {
             });
 
             if(res.data.success){
-                navigate('/');
+                navigate('/login');
             } else {
                 setError(res.data.message);
             }
