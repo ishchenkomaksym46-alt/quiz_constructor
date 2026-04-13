@@ -6,6 +6,8 @@ import Main from "./main/main";
 import Quizzes from "./quizzes/quizzes";
 import Start from './quizzes/start';
 import CreateQuiz from "./quizzes/createQuiz";
+import EditQuiz from "./quizzes/editQuiz";
+import Leaderboard from "./quizzes/leaderboard";
 import Account from "./auth/account";
 import './styles.css';
 
@@ -19,6 +21,8 @@ root.render(
             <Route path='/quizzes' element={<Quizzes />} />
             <Route path='/start' element={<Start />} />
             <Route path='/createQuiz' element={<CreateQuiz />} />
+            <Route path='/editQuiz' element={<EditQuiz />} />
+            <Route path='/leaderboard' element={<Leaderboard />} />
             <Route path='/accountInfo' element={<Account />} />
         </Routes>
     </BrowserRouter>

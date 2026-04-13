@@ -55,6 +55,7 @@ export default function Main() {
                         </div>
                     )}
                     <a href="/quizzes">Quizzes</a>
+                    <a href="/leaderboard">Leaderboard</a>
                 </div>
             </header>
 

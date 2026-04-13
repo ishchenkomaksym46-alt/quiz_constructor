@@ -89,6 +89,7 @@ export default function Account() {
                     <h2>Title: {el.title}</h2>
                     <h3>Created at: {new Date(el.created_at).toLocaleDateString('us-US')}</h3>
                     <a href={`/start?id=${el.id}`}>Start</a>
+                    <button onClick={() => navigate(`/editQuiz?id=${el.id}`)}>Edit</button>
                     <button onClick={() => deleteQuiz(el.id)}>Delete</button>
                 </div>
             ))}
