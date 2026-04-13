@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Leaderboard() {
     const [leaderboard, setLeaderboard] = useState([]);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
